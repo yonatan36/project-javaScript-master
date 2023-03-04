@@ -1,8 +1,8 @@
 class property {
   id;
   name;
-  price;
   description;
+  price;
   img;
   constructor(id, name, description, price, img) {
      this.id = id;

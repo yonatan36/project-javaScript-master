@@ -3,7 +3,11 @@ import { handlePageChange } from "./routes/router.js";
 import "./initialData/initialData.js"
 import "./pages/RegisterPage.js";
 import "./pages/loginPage.js";
-import "./pages/homePage.js"
+import "./pages/homePage.js";
+import addNeeProperty from "./utils/AddNewProperty.js";
+import { showNewPopup } from "./pages/homePage.js";
+
+
 
 const navHomeLink = document.getElementById("nav-home-link");
 const navAboutusLink = document.getElementById("nav-aboutus-link");
@@ -12,6 +16,14 @@ const navRegisterPageLink = document.getElementById("nav-register-link");
 const navLoginPageLink = document.getElementById("nav-login-link");
 const navEditProfilePage = document.getElementById("nav-edit-profile-link");
 const navLogout = document.getElementById("nav-logout");
+
+
+window.addEventListener("load", () => {
+addNeeProperty(showNewPopup)
+  
+});
+
+
 
 navHomeLink.addEventListener("click", function () {
   handlePageChange(PAGES.HOME);

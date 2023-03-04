@@ -10,7 +10,12 @@ import {
   initialPropertiesCarousel,
   updatePropertiesCarousel,
 } from "../components/PropertiesCarousle.js";
-let propertiesArr;
+import { initPopup  } from "../components/Popup.js";
+import CheckIfAdmin from "../utils/CheckIfAdmin.js"
+import CheckIfConected from "../utils/checkIfConected.js";
+
+let propertiesArr, originalPropertiesArr;
+
 
 // div displays
 const BtnhomeDisplayList = document.getElementById("homedisplayList");
@@ -24,19 +29,25 @@ const buttonUP = document.getElementById("ButtonUP");
 const buttonDown = document.getElementById("Buttondown");
 const homePageSearchInput = document.getElementById("homePageSearchInput");
 
+
 window.addEventListener("load", () => {
-  propertiesArr = localStorage.getItem("props");
+   propertiesArr = localStorage.getItem("props");
+ 
   //dont have proprties
   if (!propertiesArr) {
     return;
   }
+
   //have properties
-  propertiesArr = JSON.parse(propertiesArr);
+ 
+    propertiesArr = JSON.parse(propertiesArr);
+  originalPropertiesArr = [...propertiesArr];
   //Communicates from home page to propertiesGallery
   let isAdmin = CheckIfAdmin();
-  initialPropertiesGallery(propertiesArr, isAdmin, DelateProperty);
-  initialPropertiesList(propertiesArr, isAdmin, DelateProperty);
+  initialPropertiesGallery(propertiesArr, isAdmin, DelateProperty, showPopup);
+  initialPropertiesList(propertiesArr, isAdmin, DelateProperty, showPopup);
   initialPropertiesCarousel(propertiesArr, DelateProperty);
+
 });
 
 //Btn List
@@ -80,21 +91,16 @@ const sortPropertys = (asc = true) => {
 
 //this function do search to proprties
 homePageSearchInput.addEventListener("input", (ev) => {
-  let regex = new RegExp("^" + ev.target.value, "ig");
-  propertiesArr = JSON.parse(localStorage.getItem("props")).filter((item) =>
-    regex.test(item.name)
-  );
+  let regex = new RegExp("^" + ev.target.value, "i");
+  //do filter on the originalPropertiesArr, only the propertiesArr chage, do new array.
+  propertiesArr = originalPropertiesArr.filter((item) => {
+  let reg =  regex.test(item.name);
+  return reg;
+})
   updateDisplay();
 });
 
-const CheckIfAdmin = () => {
-  let token = localStorage.getItem("token");
-  if (!token) {
-    return false;
-  }
-  token = JSON.parse(token);
-  return token.isAdmin;
-};
+
 
 //update the properties
 const updateDisplay = () => {
@@ -107,9 +113,11 @@ const savaToLocalStorage = (arrToSave) => {
   localStorage.setItem("props", JSON.stringify(arrToSave));
 };
 
+
+
 const DelateProperty = (id) => {
   id = +id;
-  let originalPropertiesArr = JSON.parse(localStorage.getItem("props"));
+  
   originalPropertiesArr = originalPropertiesArr.filter(
     (item) => item.id !== id
   );
@@ -118,3 +126,30 @@ const DelateProperty = (id) => {
   updateDisplay();
 };
 
+const showPopup = (id) => {
+  let selectedProperty = propertiesArr.find((item) => item.id === +id);
+  if (!selectedProperty) {
+    return;
+  }
+  initPopup(selectedProperty , editProperty);
+};
+
+
+ const showNewPopup = () =>{
+    initPopup(undefined, newProperty);
+ }
+const newProperty = (newProperty) =>{
+  originalPropertiesArr =[...originalPropertiesArr, newProperty];
+  let nextId = +newProperty.id + 1;
+  localStorage.setItem("nextid", +nextId + "");
+  propertiesArr = [...originalPropertiesArr]
+editProperty();
+}
+
+const editProperty = () => {
+  savaToLocalStorage(originalPropertiesArr)
+updateDisplay()
+};
+
+
+export {showPopup , showNewPopup};

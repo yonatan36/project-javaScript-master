@@ -1,17 +1,22 @@
+import { showPopup, initPopup } from "./Popup.js";
+
 let propertiesArr;
 let galleryDiv;
 let isAdmin;
 let DelateProperty;
+let selectedPropert;
 
 const initialPropertiesGallery = (
   propertiesArrFromHomePage,
   isAdminParam,
-  DelatePropertyFromHomePage
+  DelatePropertyFromHomePage,
+  selectedPropertiesFromHomePage
 ) => {
   isAdmin = isAdminParam;
   galleryDiv = document.getElementById("home-page-properties-gallery");
-  updatePropertiesGallery(propertiesArrFromHomePage);
   DelateProperty = DelatePropertyFromHomePage;
+  selectedPropert = selectedPropertiesFromHomePage;
+  updatePropertiesGallery(propertiesArrFromHomePage);
 };
 
 const updatePropertiesGallery = (propertiesArrFromHomePage) => {
@@ -24,52 +29,59 @@ const updatePropertiesGallery = (propertiesArrFromHomePage) => {
   createGallery();
 };
 const createCard = (name, description, price, img, id) => {
-  const adminBtns = `<button type="button" class="btn btn-warning">
-                      Edit</button
-                    ><button type="button" class="btn btn-danger" id="propertygalleryDelateBtn-${id}">
-                      Delate
-                    </button> `;
+  const adminBtns = `
+      <div class="admin-btns">
+      <button type="button" class="btn btn-warning btn-sm mr-2 px-4 py-2" id="propertyEditGalleryBtn-${id}">Edit</button>
+      <button type="button" class="btn btn-danger btn-sm ml-3 px-4 py-2" id="propertyGalleryDeleteBtn-${id}">Delete</button>
+    </div>
+  `;
+
   return `
-   <div class="col">
-                <div class="card">
-                  <img
-                    src="${img}"
-                    class="card-img-top"
-                    alt="${name}"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">${name}</h5>
-                    <p class="card-text">
-          ${description}
-                    </p>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${price}</li>
-                  </ul>
-                  <div class="card-body">
-                    <button type="button" class="btn btn-success">
-                      Buy Now</button
-                    > 
-                    ${isAdmin ? adminBtns : ""}
-                  </div>
-                </div>
-              </div>
-            
-`;
+    <div class="col">
+      <div class="card">
+        <img src="${img}" class="card-img-top" alt="${name}" />
+        <div class="card-body">
+          <h5 class="card-title">${name}</h5>
+          <p class="card-text">${description}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">${price}</li>
+        </ul>
+        <div class="card-body d-flex justify-content-center">
+          <button type="button" class="btn btn-success btn-sm mx-1 px-3 py-2">Buy Now</button>
+          ${isAdmin ? adminBtns : ""}
+        </div>
+      </div>
+    </div>
+  `;
 };
-//this function delate prpertie 
+
+const handleEditBtnClick = (ev) => {
+  let idxFromId = ev.target.id.split("-");
+  console.log("here", ev);
+  selectedPropert(idxFromId[1]);
+  showPopup(initPopup);
+};
+
+const handleDelateBtnClick = (ev) => {
+  let idxFromId = ev.target.id.split("-");
+  DelateProperty(idxFromId[1]);
+};
+
+const clearEventListeners = (idKeyword, handlefunction) => {
+  let btnsBefore = document.querySelectorAll(`[id^='${idKeyword}-']`);
+  //add events to the new btns
+  for (let btn of btnsBefore) {
+    btn.removeEventListener("click", handlefunction);
+  }
+};
+
+//this function delate prpertie
 const createGallery = () => {
   let innerHTML = "";
-  const handleDelateBtnClick =  (ev) => {
-      let idxFromId = ev.target.id.split("-");
-      DelateProperty(idxFromId[1]);
-    };
-     let delateBtnsBefore = document.querySelectorAll(
-       "[id^='propertygalleryDelateBtn-']"
-     );
-     for (let delateBtn of delateBtnsBefore){
-      delateBtn.removeEventListener("click", handleDelateBtnClick)
-     }
+  clearEventListeners("propertygalleryDelateBtn", handleDelateBtnClick);
+  clearEventListeners("propertyEditGalleryBtn", handleEditBtnClick);
+
   for (let property of propertiesArr) {
     innerHTML += createCard(
       property.name,
@@ -81,11 +93,16 @@ const createGallery = () => {
   }
 
   galleryDiv.innerHTML = innerHTML;
-  let Delatebtns = document.querySelectorAll(
-    "[id^='propertygalleryDelateBtn-']"
+  createDelateBtnEventListener(
+    "propertygalleryDelateBtn",
+    handleDelateBtnClick
   );
-  for (let Delatebtn of Delatebtns) {
-    Delatebtn.addEventListener("click", handleDelateBtnClick);
+  createDelateBtnEventListener("propertyEditGalleryBtn", handleEditBtnClick);
+};
+const createDelateBtnEventListener = (idKeyword, handlefunction) => {
+  let btns = document.querySelectorAll(`[id^='${idKeyword}-']`);
+  for (let btn of btns) {
+    btn.addEventListener("click", handlefunction);
   }
 };
 

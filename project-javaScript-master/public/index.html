@@ -1,593 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
-    />
-  </head>
 
-  <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto my-2 my-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="#"
-                  id="nav-home-link"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="nav-aboutus-link">About us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="nav-contactus-link"
-                  >Contact us</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="nav-add-new-property-link"
-                  >Add new property</a
-                >
-              </li>
-            </ul>
-            <form
-              class="d-flex responsive-nav-flex"
-              role="search"
-              id="navBeforeLogin"
-            >
-              <a class="nav-link me-3" href="#" id="nav-register-link"
-                >Register</a
-              >
-              <a class="nav-link responsive-mt" href="#" id="nav-login-link"
-                >Login</a
-              >
-            </form>
-            <form
-              class="d-flex responsive-nav-flex d-none"
-              role="search"
-              id="navAfterLogin"
-            >
-              <a class="nav-link me-3" href="#" id="nav-edit-profile-page"
-                >Name</a
-              >
-              <a class="nav-link responsive-mt" href="#" id="nav-logout"
-                >Logout</a
-              >
-            </form>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto my-2 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" id="nav-home-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="nav-aboutus-link">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="nav-contactus-link">Contact us</a>
+            </li>
+
+          </ul>
+          <form class="d-flex responsive-nav-flex" role="search" id="navBeforeLogin">
+            <a class="nav-link me-3" href="#" id="nav-register-link">Register</a>
+            <a class="nav-link responsive-mt" href="#" id="nav-login-link">Login</a>
+          </form>
+          <form class="d-flex responsive-nav-flex d-none" role="search" id="navAfterLogin">
+            <a class="nav-link me-3" href="#" id="nav-edit-profile-page">Name</a>
+            <a class="nav-link responsive-mt" href="#" id="nav-logout">Logout</a>
+          </form>
         </div>
-      </nav>
-      <main>
-        <!--home page-->
-        <div id="home-page" class="d-block">
-          <h1 class="d-flex justify-content-around">Home page</h1>
-          <div
-            class="popup-wrapper d-flex justify-content-center align-items-center"
-            id="editPropertiesPopup"
-          >
-            <div class="popup-div" id="editPropertiesPopupChild">
-              <div class="card">
-                <img
-                  src=""
-                  class="card-img-top"
-                  alt=""
-                  id="editPropertiesPopupImgDisplay"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="form-floating mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="editPropertiesPopupName"
-                        placeholder="Name"
-                      />
-                      <label for="editPropertiesPopupName">Name</label>
-                    </div>
-                  </h5>
-                  <div class="card-text">
-                    <div class="form-floating">
-                      <textarea
-                        class="form-control"
-                        placeholder="description"
-                        id="editPropertiesPopupDescription"
-                      ></textarea>
-                      <label for="editPropertiesPopupDescription"
-                        >Description</label
-                      >
-                    </div>
+      </div>
+    </nav>
+    <main>
+      <!--home page-->
+      <div id="home-page" class="d-block">
+        <h1 class="d-flex justify-content-around">Home page</h1>
+
+        <div class="popup-wrapper d-flex justify-content-center align-items-center  d-none " id="editPropertiesPopup">
+          <div class="popup-div" id="editPropertiesPopupChild">
+            <div class="card">
+              <img src="" class="card-img-top" alt="" id="editPropertiesPopupImgDisplay" />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="editPropertiesPopupName" placeholder="Name" />
+                    <label for="editPropertiesPopupName">Name</label>
+                  </div>
+                </h5>
+                <div class="card-text">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="description"
+                      id="editPropertiesPopupDescription"></textarea>
+                    <label for="editPropertiesPopupDescription">Description</label>
                   </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <div class="form-floating mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="editPropertiesPopupPrice"
-                        placeholder="Price"
-                      />
-                      <label for="editPropertiesPopupPrice">Price</label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-floating mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="editPropertiesPopupImg"
-                        placeholder="Img"
-                      />
-                      <label for="editPropertiesPopupImg">Img</label>
-                    </div>
-                  </li>
-                </ul>
-                <div class="card-body">
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                    id="editPropertiesPopupSaveBtn"
-                  >
-                    <i class="bi bi-check-circle-fill"></i> Save
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    id="editPropertiesPopupCancelBtn"
-                  >
-                    <i
-                      class="bi bi-x-circle-fill"
-                      id="editPropertiesPopupCancelBtnIcon"
-                    ></i>
-                    Cancel
-                  </button>
-                </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="editPropertiesPopupPrice" placeholder="Price" />
+                    <label for="editPropertiesPopupPrice">Price</label>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="editPropertiesPopupImg" placeholder="Img" />
+                    <label for="editPropertiesPopupImg">Img</label>
+                    </ </li>
+              </ul>
+              <div class="card-body">
+                <button type="button" class="btn btn-success" id="editPropertiesPopupSaveBtn">
+                  <i class="bi bi-check-circle-fill"></i> Save
+                </button>
+                <button type="button" class="btn btn-danger" id="editPropertiesPopupCancelBtn">
+                  <i class="bi bi-x-circle-fill" id="editPropertiesPopupCancelBtnIcon"></i>
+                  Cancel
+                </button>
               </div>
             </div>
-                     
           </div>
-          <div class="d-flex justify-content-between mb-4">
-            <div>
-              <button type="button" class="btn btn-info" id="homedisplayList">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-card-list"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
-                  />
-                  <path
-                    d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"
-                  />
-                </svg>
-              </button>
-              <button
-                type="button
-                      "
-                class="btn btn-info"
-                id="homedisplayGallery"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-grid-3x3-gap-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z"
-                  />
-                </svg>
-              </button>
-              <button
-                type="button
-                      "
-                class="btn btn-info"
-                id="homedisplayCaruosle"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-view-list"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"
-                  />
-                </svg>
-              </button>
-              <button type="button" class="btn btn-info" id="ButtonUP">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-arrow-up-square-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"
-                  />
-                </svg>
-              </button>
-              <button type="button" class="btn btn-info" id="Buttondown">
-                <i class="bi bi-arrow-down-square-fill"></i>
-              </button>
-            </div>
-            <form class="d-flex justify-content-end" role="search">
-              <input
-                id="homePageSearchInput"
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                id="homeDisplaySearch"
-              />
-            </form>
-          </div>
-
-          <div id="propertiesGallery" class="d-none">
-            <div
-              class="row row-cols-1 row-cols-md-3 g-4"
-              id="home-page-properties-gallery"
-            ></div>
-          </div>
-
-          <div id="propertiesList" class="d-none">
-            <ul class="list-group" id="home-page-properties-list"></ul>
-          </div>
-          <div id="propertiesCarusel">
-            <div class="img-container" id="home-page-properties-carousel"></div>
-            <div class="d-flex justify-content-around">
-              <button
-                type="button"
-                class="btn btn-primary"
-                id="back-carusel-btn"
-              >
-                <i class="bi bi-arrow-left"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                id="next-carusel-btn"
-              >
-                <i class="bi bi-arrow-right"></i>
-              </button>
-            </div>
-          </div>
+                   
         </div>
+        <div class="d-flex justify-content-between mb-4">
+          <div>
 
-        <!--about us-->
-        <div id="about-us" class="d-none">
-          <h1>About Us</h1>
-        </div>
-        <!--contact us-->
-        <div id="contact-us" class="d-none">
-          <h1>Contact Us</h1>
-        </div>
-        <!--registr page-->
-        <div id="register-page" class="d-none">
-          <h1>Register-Page</h1>
-          <form class="row g-3" onsubmit="event.preventDefault()">
-            <h4>name</h4>
-            <div class="col-md-6">
-              <label for="register-input-name" class="form-label"
-                >First Name</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="register-input-name"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-name"
-              >
-                Must Start With a capital Letter
-              </div>
-            </div>
 
-            <div class="col-md-6">
-              <label for="register-input-last-name" class="form-label"
-                >Last Name</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="register-input-last-name"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-last-name"
-              >
-                Must Start With a capital Letter
-              </div>
-            </div>
-            <h4>Address</h4>
-            <div class="col-md-4">
-              <label for="register-input-state" class="form-label">State</label>
-              <input
-                type="text"
-                class="form-control"
-                id="register-input-state"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-state"
-              >
-                Must Start With a capital Letter
-              </div>
-            </div>
-            <div class="col-md-4">
-              <label for="register-input-country" class="form-label"
-                >Country</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="register-input-country"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-country"
-              >
-                Must Start With a capital Letter
-              </div>
-            </div>
-            <div class="col-md-4">
-              <label for="register-input-city" class="form-label">City</label>
-              <input
-                type="text"
-                class="form-control"
-                id="register-input-city"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-city"
-              >
-                Must Start With a capital Letter
-              </div>
-            </div>
-            <div class="col-md-4">
-              <label for="register-input-street" class="form-label"
-                >Street</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="register-input-street"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-street"
-              >
-                Must Start With a capital Letter
-              </div>
-            </div>
-            <div class="col-md-4">
-              <label for="register-input-house-number" class="form-label"
-                >House Number</label
-              >
-              <input
-                type="number"
-                class="form-control"
-                id="register-input-house-number"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-house-number"
-              >
-                numbers are required
-              </div>
-            </div>
-            <div class="col-md-4">
-              <label for="register-input-zip-code" class="form-label"
-                >Zip Code</label
-              >
-              <input
-                type="number"
-                class="form-control"
-                id="register-input-zip-code"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-zip-code"
-              >
-                numbers are required
-              </div>
-            </div>
-            <h4>Means Of Contact</h4>
-            <div class="col-md-6">
-              <label for="register-input-email" class="form-label">Email</label>
-              <input
-                type="text"
-                class="form-control"
-                id="register-input-email"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-email"
-              >
-                email inavalid
-                <br />
-                example of a valid email: "yon34@gmail.com"
-              </div>
-            </div>
-            <div class="col-md-6">
-              <label for="register-input-phone" class="form-label">Phone</label>
-              <input
-                type="number"
-                class="form-control"
-                id="register-input-phone"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-phone"
-              >
-                numbers are required
-              </div>
-            </div>
-            <h4>Security</h4>
-            <div class="col-md-6">
-              <label for="register-input-password" class="form-label"
-                >Password</label
-              >
-              <input
-                type="password"
-                class="form-control"
-                id="register-input-password"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-password"
-              >
-                1. The password length must be greater than or equal to 8 <br />
-                2. The password must contain one or more uppercase
-                characters,<br />
-                3. lowercase characters,<br />
-                4. numeric values, (1-10)<br />
-                5. special characters (!@#$%^&*)
-              </div>
-            </div>
-            <div class="col-md-6">
-              <label for="register-input-repeat-password" class="form-label"
-                >Repeat password</label
-              >
-              <input
-                type="password"
-                class="form-control"
-                id="register-input-repeat-password"
-              />
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert-repeat-password"
-              >
-                Password does not match
-              </div>
-            </div>
-
-            <div class="col-12">
-              <button
-                type="submit"
-                class="btn btn-primary"
-                disabled="true"
-                id="register-btn"
-              >
-                Submit
-              </button>
-            </div>
+            <button type="button" class="btn btn-info" id="homedisplayList">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list"
+                viewBox="0 0 16 16">
+                <path
+                  d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                <path
+                  d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+              </svg>
+            </button>
+            <button type="button
+                      " class="btn btn-info" id="homedisplayGallery">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
+                <path
+                  d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
+              </svg>
+            </button>
+            <button type="button
+                      " class="btn btn-info" id="homedisplayCaruosle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-list"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z" />
+              </svg>
+            </button>
+            <button type="button" class="btn btn-info" id="ButtonUP">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+                <path
+                  d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z" />
+              </svg>
+            </button>
+            <button type="button" class="btn btn-info" id="Buttondown">
+              <i class="bi bi-arrow-down-square-fill"></i>
+            </button>
+            <button type="button" class="btn btn-info" id="btnAddNewProperty"> <i
+                class="bi bi-plus-square-fill"></i></button>
+          </div>
+          <form class="d-flex justify-content-end" role="search">
+            <input id="homePageSearchInput" class="form-control me-2" type="search" placeholder="Search"
+              aria-label="Search" id="homeDisplaySearch" />
           </form>
-                    
         </div>
-        <!--login page-->
-        <div id="login-page" class="d-none">
-          <h1>Login page</h1>
-          <form onsubmit="event.preventDefault()">
-            <div class="form-floating mb-3">
-              <input
-                type="email"
-                class="form-control"
-                id="login-input-email"
-                placeholder="name@example.com"
-              />
-              <label for="login-input-email">Email address</label>
-            </div>
-            <div
-              class="alert alert-danger d-none"
-              role="alert"
-              id="login-alert-email"
-            >
-              Email rules
-            </div>
-            <div class="form-floating">
-              <input
-                type="password"
-                class="form-control"
-                id="login-input-password"
-                placeholder="Password"
-              />
-              <label for="login-input-password">Password</label>
-            </div>
-            <div
-              class="alert alert-danger d-none"
-              role="alert"
-              id="login-alert-password"
-            >
-              Password rules
-            </div>
-            <div class="mb-3 form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              />
-              <label class="form-check-label" for="exampleCheck1"
-                >Check me out</label
-              >
-            </div>
-            <button class="btn btn-primary" id="login-btn">Submit</button>
-          </form>
-                  
-        </div>
-      </main>
-      <footer class="border-top pt-3 d-flex justify-content-center">
-        2023©️
-      </footer>
-    </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../src/app.js" type="module"></script>
-  </body>
+        <div id="propertiesGallery" class="d-none">
+          <div class="row row-cols-1 row-cols-md-3 g-4" id="home-page-properties-gallery"></div>
+        </div>
+
+        <div id="propertiesList" class="d-none">
+          <ul class="list-group" id="home-page-properties-list"></ul>
+        </div>
+        <div id="propertiesCarusel">
+          <div class="img-container" id="home-page-properties-carousel"></div>
+          <div class="d-flex justify-content-around">
+            <button type="button" class="btn btn-primary" id="back-carusel-btn">
+              <i class="bi bi-arrow-left"></i>
+            </button>
+            <button type="button" class="btn btn-primary" id="next-carusel-btn">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--about us-->
+      <div id="about-us" class="d-none">
+        <h1>About Us</h1>
+        
+          <div class="card">
+            <img src="${img}" class="card-img-top" alt="${name}" />
+            <div class="card-body">
+              <h5 class="card-title">${name}</h5>
+              <p class="card-text">${description}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">${price}</li>
+            </ul>
+            <div class="card-body d-flex justify-content-center">
+              <button type="button" class="btn btn-success mr-2">Buy Now</button>
+              <div class="admin-btns d-flex">
+                <button type="button" class="btn btn-warning btn-sm mr-2" id="propertyEditGalleryBtn-${id}">Edit</button>
+                <button type="button" class="btn btn-danger btn-sm" id="propertyGalleryDeleteBtn-${id}">Delete</button>
+              </div>
+            </div>
+          </div>
+
+            
+            
+      </div>
+      <!--contact us-->
+      <div id="contact-us" class="d-none">
+        <h1>Contact Us</h1>
+      </div>
+      <!--registr page-->
+      <div id="register-page" class="d-none">
+        <h1>Register-Page</h1>
+        <form class="row g-3" onsubmit="event.preventDefault()">
+          <h4>name</h4>
+          <div class="col-md-6">
+            <label for="register-input-name" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="register-input-name" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-name">
+              Must Start With a capital Letter
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="register-input-last-name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="register-input-last-name" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-last-name">
+              Must Start With a capital Letter
+            </div>
+          </div>
+          <h4>Address</h4>
+          <div class="col-md-4">
+            <label for="register-input-state" class="form-label">State</label>
+            <input type="text" class="form-control" id="register-input-state" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-state">
+              Must Start With a capital Letter
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="register-input-country" class="form-label">Country</label>
+            <input type="text" class="form-control" id="register-input-country" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-country">
+              Must Start With a capital Letter
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="register-input-city" class="form-label">City</label>
+            <input type="text" class="form-control" id="register-input-city" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-city">
+              Must Start With a capital Letter
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="register-input-street" class="form-label">Street</label>
+            <input type="text" class="form-control" id="register-input-street" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-street">
+              Must Start With a capital Letter
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="register-input-house-number" class="form-label">House Number</label>
+            <input type="number" class="form-control" id="register-input-house-number" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-house-number">
+              numbers are required
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="register-input-zip-code" class="form-label">Zip Code</label>
+            <input type="number" class="form-control" id="register-input-zip-code" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-zip-code">
+              numbers are required
+            </div>
+          </div>
+          <h4>Means Of Contact</h4>
+          <div class="col-md-6">
+            <label for="register-input-email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="register-input-email" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-email">
+              email inavalid
+              <br />
+              example of a valid email: "yon34@gmail.com"
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="register-input-phone" class="form-label">Phone</label>
+            <input type="number" class="form-control" id="register-input-phone" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-phone">
+              numbers are required
+            </div>
+          </div>
+          <h4>Security</h4>
+          <div class="col-md-6">
+            <label for="register-input-password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="register-input-password" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-password">
+              1. The password length must be greater than or equal to 8 <br />
+              2. The password must contain one or more uppercase
+              characters,<br />
+              3. lowercase characters,<br />
+              4. numeric values, (1-10)<br />
+              5. special characters (!@#$%^&*)
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="register-input-repeat-password" class="form-label">Repeat password</label>
+            <input type="password" class="form-control" id="register-input-repeat-password" />
+            <div class="alert alert-danger d-none" role="alert" id="register-alert-repeat-password">
+              Password does not match
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary" disabled="true" id="register-btn">
+              Submit
+            </button>
+          </div>
+        </form>
+                  
+      </div>
+      <!--login page-->
+      <div id="login-page" class="d-none">
+        <h1>Login page</h1>
+        <form onsubmit="event.preventDefault()">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="login-input-email" placeholder="name@example.com" />
+            <label for="login-input-email">Email address</label>
+          </div>
+          <div class="alert alert-danger d-none" role="alert" id="login-alert-email">
+            Email rules
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="login-input-password" placeholder="Password" />
+            <label for="login-input-password">Password</label>
+          </div>
+          <div class="alert alert-danger d-none" role="alert" id="login-alert-password">
+            Password rules
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button class="btn btn-primary" id="login-btn">Submit</button>
+        </form>
+                
+      </div>
+    </main>
+    <footer class="border-top pt-3 d-flex justify-content-center">
+      2023©️
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="../src/app.js" type="module"></script>
+</body>
+
 </html>

@@ -56,7 +56,7 @@ const setInitialData = () => {
     }
 
     localStorage.setItem("props", JSON.stringify(createData()));
-      localStorage.setItem("next id", id + "");
+      localStorage.setItem("nextid", id + "");
 };
 
     setInitialData();

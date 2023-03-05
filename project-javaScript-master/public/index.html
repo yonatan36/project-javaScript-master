@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="toast.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
@@ -45,6 +46,7 @@
         </div>
       </div>
     </nav>
+    <div id="toast"></div>
     <main>
       <!--home page-->
       <div id="home-page" class="d-block">
@@ -80,8 +82,9 @@
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="editPropertiesPopupImg" placeholder="Img" />
                     <label for="editPropertiesPopupImg">Img</label>
-                    </ </li>
-              </ul>
+                  </li>
+                  </div>
+                </ul>
               <div class="card-body">
                 <button type="button" class="btn btn-success" id="editPropertiesPopupSaveBtn">
                   <i class="bi bi-check-circle-fill"></i> Save
@@ -97,8 +100,6 @@
         </div>
         <div class="d-flex justify-content-between mb-4">
           <div>
-
-
             <button type="button" class="btn btn-info" id="homedisplayList">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list"
                 viewBox="0 0 16 16">
@@ -165,29 +166,9 @@
 
       <!--about us-->
       <div id="about-us" class="d-none">
-        <h1>About Us</h1>
-        
-          <div class="card">
-            <img src="${img}" class="card-img-top" alt="${name}" />
-            <div class="card-body">
-              <h5 class="card-title">${name}</h5>
-              <p class="card-text">${description}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">${price}</li>
-            </ul>
-            <div class="card-body d-flex justify-content-center">
-              <button type="button" class="btn btn-success mr-2">Buy Now</button>
-              <div class="admin-btns d-flex">
-                <button type="button" class="btn btn-warning btn-sm mr-2" id="propertyEditGalleryBtn-${id}">Edit</button>
-                <button type="button" class="btn btn-danger btn-sm" id="propertyGalleryDeleteBtn-${id}">Delete</button>
-              </div>
-            </div>
-          </div>
-
-            
-            
+      
       </div>
+      
       <!--contact us-->
       <div id="contact-us" class="d-none">
         <h1>Contact Us</h1>
@@ -324,9 +305,142 @@
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div>
           <button class="btn btn-primary" id="login-btn">Submit</button>
-        </form>
-                
+        </form>  
       </div>
+      <!--profile-page-->
+      <div id="profile-page" class="d-none">
+      <h1>profile-page</h1>
+      <form class="row g-3" onsubmit="event.preventDefault()">
+        <h4>name</h4>
+        <div class="col-md-6">
+          <label for="profile-input-name" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="profile-input-name" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-name">
+            Must Start With a capital Letter
+          </div>
+        </div>
+      
+        <div class="col-md-6">
+          <label for="profile-input-last-name" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="profile-input-last-name" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-last-name">
+            Must Start With a capital Letter
+          </div>
+        </div>
+        <h4>Address</h4>
+        <div class="col-md-4">
+          <label for="profile-input-state" class="form-label">State</label>
+          <input type="text" class="form-control" id="profile-input-state" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-state">
+            Must Start With a capital Letter
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="profile-input-country" class="form-label">Country</label>
+          <input type="text" class="form-control" id="profile-input-country" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-country">
+            Must Start With a capital Letter
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="profile-input-city" class="form-label">City</label>
+          <input type="text" class="form-control" id="profile-input-city" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-city">
+            Must Start With a capital Letter
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="profile-input-street" class="form-label">Street</label>
+          <input type="text" class="form-control" id="profile-input-street" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-street">
+            Must Start With a capital Letter
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="profile-input-house-number" class="form-label">House Number</label>
+          <input type="number" class="form-control" id="profile-input-house-number" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-house-number">
+            numbers are required
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="profile-input-zip-code" class="form-label">Zip Code</label>
+          <input type="number" class="form-control" id="profile-input-zip-code" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-zip-code">
+            numbers are required
+          </div>
+        </div>
+        <h4>Means Of Contact</h4>
+        <div class="col-md-6">
+          <label for="profile-input-email" class="form-label">Email</label>
+          <input type="text" class="form-control" id="profile-input-email" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-email">
+            email inavalid
+            <br />
+            example of a valid email: "yon34@gmail.com"
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="profile-input-phone" class="form-label">Phone</label>
+          <input type="number" class="form-control" id="profile-input-phone" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-phone">
+            numbers are required
+          </div>
+        </div>
+        <h4>Security</h4>
+        <div class="col-md-6">
+          <label for="profile-input-password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="profile-input-password" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-password">
+            1. The password length must be greater than or equal to 8 <br />
+            2. The password must contain one or more uppercase
+            characters,<br />
+            3. lowercase characters,<br />
+            4. numeric values, (1-10)<br />
+            5. special characters (!@#$%^&*)
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="profile-input-repeat-password" class="form-label">Repeat password</label>
+          <input type="password" class="form-control" id="profile-input-repeat-password" />
+          <div class="alert alert-danger d-none" role="alert" id="profile-alert-repeat-password">
+            Password does not match
+          </div>
+        </div>
+      
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" disabled="true" id="profile-btn">
+            Update
+          </button>
+        </div>
+      </form>
+                
+      </div>
+      <!--login page-->
+      <div id="login-page" class="d-none">
+        <h1>Login page</h1>
+        <form onsubmit="event.preventDefault()">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="login-input-email" placeholder="name@example.com" />
+            <label for="login-input-email">Email address</label>
+          </div>
+          <div class="alert alert-danger d-none" role="alert" id="login-alert-email">
+            Email rules
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="login-input-password" placeholder="Password" />
+            <label for="login-input-password">Password</label>
+          </div>
+          <div class="alert alert-danger d-none" role="alert" id="login-alert-password">
+            Password rules
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button class="btn btn-primary" id="login-btn">Submit</button>
+        </form>  
+    </div>
     </main>
     <footer class="border-top pt-3 d-flex justify-content-center">
       2023©️

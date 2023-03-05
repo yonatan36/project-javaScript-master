@@ -1,0 +1,12 @@
+#toast {
+    position: absolute;
+left: 1rem;
+border-radius: 0.3rem;
+}
+.success{
+    background-color: aqua;
+
+}
+.error{
+    background-color: crimson;
+}

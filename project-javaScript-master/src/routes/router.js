@@ -5,6 +5,7 @@ const ABOUTUSLINK = document.getElementById(PAGES.ABOUT);
 const CONTACTUSLINK = document.getElementById(PAGES.CONTACT);
 const LOGINPAGELINK = document.getElementById(PAGES.LOGIN);
 const REGISTERPAGELINK = document.getElementById(PAGES.REGISTER);
+const PROFILEPAGELINK = document.getElementById(PAGES.PROFILE);
 
 function handlePageChange(pageToDisplay) {
   /* hide all pages */
@@ -13,14 +14,14 @@ function handlePageChange(pageToDisplay) {
   CONTACTUSLINK.classList.remove("d-block");
   LOGINPAGELINK.classList.remove("d-block");
   REGISTERPAGELINK.classList.remove("d-block");
-  // PROFILEPAGELINK.classList.remove("d-block");
+PROFILEPAGELINK.classList.remove("d-block");
   // PAGE404PAGELINK.classList.remove("d-block");
   HOMEPAGELINK.classList.add("d-none");
   ABOUTUSLINK.classList.add("d-none");
   CONTACTUSLINK.classList.add("d-none");
   LOGINPAGELINK.classList.add("d-none");
   REGISTERPAGELINK.classList.add("d-none");
-  // PROFILEPAGELINK.classList.add("d-none");
+ PROFILEPAGELINK.classList.add("d-none");
   // PAGE404PAGELINK.classList.add("d-none");
 
   switch (pageToDisplay) {

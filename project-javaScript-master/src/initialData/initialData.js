@@ -1,6 +1,7 @@
 import property from "../models/Property.js";
 
 let id = 1;
+let nextUserId = 1;
 const createData = () => {
     let propertiesArr = [
       new property(
@@ -57,6 +58,7 @@ const setInitialData = () => {
 
     localStorage.setItem("props", JSON.stringify(createData()));
       localStorage.setItem("nextid", id + "");
+      localStorage.setItem("nextUserId", nextUserId + "");
 };
 
     setInitialData();

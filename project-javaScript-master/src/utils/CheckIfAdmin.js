@@ -4,8 +4,8 @@ const CheckIfAdmin = () => {
     return false;
   }
   token = JSON.parse(token);
-  return token.isAdmin;
+  const isAdmin = token.isAdmin; // declare isAdmin variable and assign the value of token.isAdmin
+  return isAdmin;
 };
 
-
- export default CheckIfAdmin;
+export default CheckIfAdmin;

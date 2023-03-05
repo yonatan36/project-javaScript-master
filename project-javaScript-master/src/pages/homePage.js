@@ -11,8 +11,12 @@ import {
   updatePropertiesCarousel,
 } from "../components/PropertiesCarousle.js";
 import { initPopup  } from "../components/Popup.js";
-import CheckIfAdmin from "../utils/CheckIfAdmin.js"
-import CheckIfConected from "../utils/checkIfConected.js";
+import CheckIfAdmin from "../utils/checkIfAdmin.js";
+
+
+
+
+let isAdmin;
 
 let propertiesArr, originalPropertiesArr;
 
@@ -43,7 +47,7 @@ window.addEventListener("load", () => {
     propertiesArr = JSON.parse(propertiesArr);
   originalPropertiesArr = [...propertiesArr];
   //Communicates from home page to propertiesGallery
-  let isAdmin = CheckIfAdmin();
+   isAdmin = CheckIfAdmin();
   initialPropertiesGallery(propertiesArr, isAdmin, DelateProperty, showPopup);
   initialPropertiesList(propertiesArr, isAdmin, DelateProperty, showPopup);
   initialPropertiesCarousel(propertiesArr, DelateProperty);
@@ -136,9 +140,9 @@ const showPopup = (id) => {
 
 
  const showNewPopup = () =>{
-    initPopup(undefined, newProperty);
+    initPopup(undefined, addNewProperty);
  }
-const newProperty = (newProperty) =>{
+const addNewProperty = (newProperty) =>{
   originalPropertiesArr =[...originalPropertiesArr, newProperty];
   let nextId = +newProperty.id + 1;
   localStorage.setItem("nextid", +nextId + "");

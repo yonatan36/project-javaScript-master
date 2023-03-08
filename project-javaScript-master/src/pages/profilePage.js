@@ -358,7 +358,21 @@ inputRepeatPassword.addEventListener("input", () => {
   checkInputReaptPassword();
 });
 
+
+
 btnProfile.addEventListener("click", () => {
+checkInputCity();
+checkInputEmail();
+checkInputHouseNumber();
+checkInputPhone();
+checkInputReaptPassword();
+checkInputPassword();
+checkInputStreet();
+checkInputZipCode();
+checkInputcountry();
+checkLastNameInput();
+checkNameInput();
+checkinputState();
   if (
     !(
       nameOk &&
@@ -407,7 +421,7 @@ btnProfile.addEventListener("click", () => {
       user.housenumber = inputHouseNumber.value;
       user.zipcode = inputZipCode.value;
 
-      updateUsers(users);
+   localStorage.setItem("users" , JSON.stringify(users))
 
       showToast("Profile updated successfully!", true);
     }

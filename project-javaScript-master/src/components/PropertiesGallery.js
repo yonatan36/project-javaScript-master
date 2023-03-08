@@ -48,13 +48,14 @@ const createCard = (name, description, price, img, id) => {
           <li class="list-group-item">${price}</li>
         </ul>
         <div class="card-body d-flex justify-content-center">
-          <button type="button" class="btn btn-success btn-sm mx-1 px-3 py-2">Buy Now</button>
+          <button type="button" class="btn btn-success btn-sm mx-1 px-3 py-2" "propertyGalleryBuyNowBtn-${id}">Buy Now</button>
           ${isAdmin ? adminBtns : ""}
         </div>
       </div>
     </div>
   `;
 };
+
 
 const handleEditBtnClick = (ev) => {
   let idxFromId = ev.target.id.split("-");

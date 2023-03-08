@@ -1,13 +1,36 @@
 #toast {
-    position: absolute;
-left: 1rem;
-border-radius: 0.3rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  color: #333;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+ border-radius: 20px;
 }
-.success{
-    background-color: aqua;
 
-}
-.error{
-    background-color: crimson;
+.success {
+  background-color: #e4e4e4;
 }
 
+.error {
+  background-color: #f3233f;
+}
+
+.toast-timer {
+  background-color: #333;
+  height: 3rem;
+  animation: toast-slider 6s;
+}
+
+@keyframes toast-slider {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}

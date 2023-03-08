@@ -36,42 +36,25 @@ let repeatpasswordOk = false;
 
 //have name alerdy in input
 window.addEventListener("load", () => {
-  if (inputName.value !== "") {
-    checkNameInput();
-  }
-  if (inputState.value !== "") {
-    checkinputState();
-  }
-  if (inputLastName.value !== "") {
-    checkLastNameInput();
-  }
-  if (inputCountry.value !== "") {
-    checkInputcountry();
-  }
-  if (inputCity.value !== "") {
-    checkInputCity();
-  }
-  if (inputStreet.value !== "") {
-    checkInputStreet();
-  }
-  if (inputHouseNumber.value !== "") {
-    checkInputHouseNumber();
-  }
-  if (inputZipCode.value !== "") {
-    checkInputZipCode();
-  }
-  if (inputEmail.value !== "") {
-    checkInputEmail();
-  }
-  if (inputPhone.value !== "") {
-    checkInputPhone();
-  }
-  if (inputPassword.value !== "") {
-    checkInputPassword();
-  }
-  if (inputRepeatPassword.value !== "") {
-    checkInputReaptPassword();
-  }
+  let users = localStorage.getItem("users");
+  let token = localStorage.getItem("token");
+  users = JSON.parse(users);
+  token = JSON.parse(token);
+
+  let user = users.find((item) => item.id === token.id);
+
+  inputName.value = user.name;
+  inputLastName.value = user.lastName;
+  inputState.value = user.state;
+  inputCountry.value = user.country;
+  inputCity.value = user.city;
+  inputStreet.value = user.street;
+  inputEmail.value = user.email = token.email;
+  inputPassword.value = token.password;
+  inputRepeatPassword.value = user.repeatpassword;
+  inputPhone.value = user.phone;
+  inputHouseNumber.value = user.houseNumber;
+  inputZipCode.value = user.zipCode;
 });
 
 const checkNameInput = () => {
@@ -90,7 +73,6 @@ const checkNameInput = () => {
       inputName.classList.add("is-invalid");
       nameOk = false;
     }
-    checkBtn();
   }
 };
 inputName.addEventListener("input", () => {
@@ -117,7 +99,6 @@ const checkLastNameInput = () => {
       inputLastName.classList.add("is-invalid");
       lastnameOk = false;
     }
-    checkBtn();
   }
 };
 inputLastName.addEventListener("input", () => {
@@ -140,7 +121,6 @@ const checkinputState = () => {
       inputState.classList.add("is-invalid");
       stateOk = false;
     }
-    checkBtn();
   }
 };
 inputState.addEventListener("input", () => {
@@ -165,7 +145,6 @@ const checkInputcountry = () => {
       inputCountry.classList.add("is-invalid");
       countryOk = false;
     }
-    checkBtn();
   }
 };
 inputCountry.addEventListener("input", () => {
@@ -189,7 +168,6 @@ const checkInputCity = () => {
 
       countryOk = false;
     }
-    checkBtn();
   }
 };
 inputCity.addEventListener("input", () => {
@@ -214,7 +192,6 @@ const checkInputStreet = () => {
       inputStreet.classList.add("is-invalid");
       streetOk = false;
     }
-    checkBtn();
   }
 };
 inputStreet.addEventListener("input", () => {
@@ -243,7 +220,6 @@ const checkInputHouseNumber = () => {
       inputHouseNumber.classList.add("is-invalid");
       housenumberOk = false;
     }
-    checkBtn();
   }
 };
 inputHouseNumber.addEventListener("input", () => {
@@ -268,7 +244,6 @@ const checkInputZipCode = () => {
       inputZipCode.classList.add("is-invalid");
       zipcodeOk = false;
     }
-    checkBtn();
   }
 };
 inputZipCode.addEventListener("input", () => {
@@ -319,7 +294,6 @@ const checkInputPhone = () => {
       inputPhone.classList.add("is-invalid");
       phoneOk = false;
     }
-    checkBtn();
   }
 };
 inputPhone.addEventListener("input", () => {
@@ -350,12 +324,10 @@ const checkInputPassword = () => {
         errorArr.join("<br>");
       passwordOk = false;
     }
-    checkBtn();
   }
 };
 inputPassword.addEventListener("input", () => {
   checkInputPassword();
-  console.log(checkInputPassword, "login");
 });
 
 const checkInputReaptPassword = () => {
@@ -380,29 +352,12 @@ const checkInputReaptPassword = () => {
       inputRepeatPassword.classList.add("is-invalid");
       repeatpasswordOk = false;
     }
-    checkBtn();
   }
 };
 inputRepeatPassword.addEventListener("input", () => {
   checkInputReaptPassword();
 });
 
-const checkBtn = () =>
-  (btnProfile.disabled = !(
-    nameOk &&
-    lastnameOk &&
-    stateOk &&
-    countryOk &&
-    cityOk &&
-    streetOk &&
-    emailOk &&
-    passwordOk &&
-    repeatpasswordOk &&
-    phoneOk &&
-    housenumberOk &&
-    zipcodeOk
-  ));
-// check if the users proper
 btnProfile.addEventListener("click", () => {
   if (
     !(
@@ -422,37 +377,39 @@ btnProfile.addEventListener("click", () => {
   ) {
     return;
   }
-  //the first user
+
   let users = localStorage.getItem("users");
   let token = localStorage.getItem("token");
 
- if(users && token) {
+  if (users && token) {
     users = JSON.parse(users);
-    token = JSON.parse(token)
-    //check if have email 
-    let useremail = users.find((item)=> item.email === inputEmail.value)
-    let user = users.find((item) =>item.id === token.id )
-    if(useremail && user.id !== useremail.id){
-      showToast("the email alrady teken" , false)
-    return;
+    token = JSON.parse(token);
+
+    let useremail = users.find((item) => item.email === inputEmail.value);
+    let user = users.find((item) => item.id === token.id);
+
+    if (useremail && user.id !== useremail.id) {
+      showToast("The email is already taken.", false);
+      return;
     }
-if (user){
-  user.name = token.name = inputName.value;
-  user.lastName = inputLastName.value;
-  user.state = inputState.value;
-  user.country = inputCountry.value;
-  user.city =inputCity.value;
-  user.street =  inputStreet.value;
-  user.email = token.email = inputEmail.value;
-  user.password = token.password = inputPassword.value;
-  user.repeatpassword =  inputRepeatPassword.value;
-  user.phone = inputPhone.value;
-  user.housenumber = inputHouseNumber.value;
-  user.zipcode = inputZipCode.value;
 
+    if (user) {
+      user.name = token.name = inputName.value;
+      user.lastName = inputLastName.value;
+      user.state = inputState.value;
+      user.country = inputCountry.value;
+      user.city = inputCity.value;
+      user.street = inputStreet.value;
+      user.email = token.email = inputEmail.value;
+      user.password = token.password = inputPassword.value;
+      user.repeatpassword = inputRepeatPassword.value;
+      user.phone = inputPhone.value;
+      user.housenumber = inputHouseNumber.value;
+      user.zipcode = inputZipCode.value;
 
-  localStorage.setItem("users", JSON.stringify(users));
-}
+      updateUsers(users);
+
+      showToast("Profile updated successfully!", true);
+    }
   }
-  handlePageChange(PAGES.LOGIN);
 });

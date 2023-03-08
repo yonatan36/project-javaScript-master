@@ -79,7 +79,7 @@ const clearEventListeners = (idKeyword, handlefunction) => {
 //this function delate prpertie
 const createGallery = () => {
   let innerHTML = "";
-  clearEventListeners("propertygalleryDelateBtn", handleDelateBtnClick);
+  clearEventListeners("propertyGalleryDeleteBtn", handleDelateBtnClick);
   clearEventListeners("propertyEditGalleryBtn", handleEditBtnClick);
 
   for (let property of propertiesArr) {
@@ -94,7 +94,7 @@ const createGallery = () => {
 
   galleryDiv.innerHTML = innerHTML;
   createDelateBtnEventListener(
-    "propertygalleryDelateBtn",
+    "propertyGalleryDeleteBtn",
     handleDelateBtnClick
   );
   createDelateBtnEventListener("propertyEditGalleryBtn", handleEditBtnClick);

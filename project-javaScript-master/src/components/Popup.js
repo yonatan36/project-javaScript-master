@@ -73,9 +73,18 @@ window.addEventListener("load", () => {
       editProperty(selectedProperty);
       hidepopup();
     });
-  editPropertiesPopupImg.addEventListener("input", () => {
-    editPropertiesPopupImgDisplay.src = editPropertiesPopupImg.value;
-  });
+editPropertiesPopupImg.addEventListener("input", () => {
+  const imageURL = editPropertiesPopupImg.value;
+  const regex = /\.(jpeg|jpg|gif|png)$/i; // regex pattern to match image file extensions
+
+  if (regex.test(imageURL)) {
+    editPropertiesPopupImgDisplay.src = imageURL;
+  } else {
+    console.log("Invalid image URL");
+  }
+});
+
+
  
 });
 

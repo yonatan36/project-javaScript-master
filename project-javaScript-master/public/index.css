@@ -119,4 +119,48 @@ body {
     margin-top: 0.9rem;
   }}
  
-  
+          .mapouter {
+            position: relative;
+            text-align: right;
+            height: 100%;
+            width: 100%;
+          }
+        
+          .gmap_canvas {
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+            width: 100%;
+          }
+        
+          #gmap_canvas {
+            height: 100%;
+            width: 100%;
+          }
+        
+          .form-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        
+          @media screen and (max-width: 767px) {
+        
+            .mapouter,
+            .gmap_canvas {
+              height: 300px;
+            }
+          }
+  .logo {
+  border: 2px solid #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+

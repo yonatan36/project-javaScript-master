@@ -225,7 +225,7 @@ inputStreet.addEventListener("input", () => {
 
 const checkInputHouseNumber = () => {
   const reg = new RegExp("[0-9]");
-  if (inputHouseNumber.value.length === 0) {
+  if (inputHouseNumber.value.length === "") {
     inputHouseNumber.classList.remove("is-invalid");
     document
       .getElementById("register-alert-house-number")
@@ -253,28 +253,25 @@ inputHouseNumber.addEventListener("input", () => {
 });
 
 const checkInputZipCode = () => {
-  const reg = new RegExp("^[0-9]");
-  if (inputZipCode.value.length === 0) {
+  const reg = new RegExp("[0-9]");
+  if (inputZipCode.value.length === "") {
     inputZipCode.classList.remove("is-invalid");
     document.getElementById("register-alert-zip-code").classList.add("d-none");
-    nameOk = true;
+    zipcodeOk = true;
   } else {
     if (reg.test(inputZipCode.value)) {
       inputZipCode.classList.remove("is-invalid");
-      document
-        .getElementById("register-alert-zip-code")
-        .classList.add("d-none");
+      document.getElementById("register-alert-zip-code").classList.add("d-none");
       zipcodeOk = true;
     } else {
-      document
-        .getElementById("register-alert-zip-code")
-        .classList.remove("d-none");
+      document.getElementById("register-alert-zip-code").classList.remove("d-none");
       inputZipCode.classList.add("is-invalid");
       zipcodeOk = false;
     }
     checkBtn();
   }
 };
+
 inputZipCode.addEventListener("input", () => {
   checkInputZipCode();
 });
@@ -303,6 +300,7 @@ const checkInputEmail = () => {
         errorArr.join("<br>");
       emailOk = false;
     }
+    checkBtn()
   }
 };
 inputEmail.addEventListener("input", () => {
@@ -365,7 +363,7 @@ const checkInputPassword = () => {
 };
 inputPassword.addEventListener("input", () => {
   checkInputPassword();
-  console.log(checkInputPassword, "login");
+
 });
 
 const checkInputReaptPassword = () => {

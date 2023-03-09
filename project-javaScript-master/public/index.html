@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  <link rel="shortcut icon" type="image/png" href="assets/imgs/porsche.png">
+    <link rel="shortcut icon" type="image/png" href="assets/imgs/porsche.png" />
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="toast.css" />
     <link
@@ -24,7 +24,9 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-body-tertiary navbar sticky-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><i class="bi bi-car-front-fill"></i></a>
+          <a class="navbar-brand" href="#"
+            ><i class="bi bi-car-front-fill"></i
+          ></a>
           <button
             class="navbar-toggler"
             type="button"
@@ -40,7 +42,7 @@
             <ul class="navbar-nav me-auto my-2 my-lg-0">
               <li class="nav-item">
                 <a
-                  class="nav-link active"
+                  class="nav-link active d-none"
                   aria-current="page"
                   href="#"
                   id="nav-home-link"
@@ -96,11 +98,8 @@
               text-shadow: 2px 2px #000000;
             "
           >
-            Luxury Cars for Sale
+           ❤️Luxury Cars for Sale❤️
           </h1>
-
-
-
 
           <div
             class="popup-wrapper d-flex justify-content-center align-items-center d-none"
@@ -319,6 +318,18 @@
           <br />
 
           <div id="propertiesGallery" class="d-none">
+            <h1
+              style="
+                font-family: cursive;
+                font-size: 36px;
+                text-align: center;
+                color: aliceblue;
+                text-shadow: 2px 2px #000000;
+              "
+            >
+              gallery show
+            </h1>
+            <br />
             <div
               class="row row-cols-1 row-cols-md-3 g-4"
               id="home-page-properties-gallery"
@@ -326,6 +337,18 @@
           </div>
 
           <div id="propertiesList" class="d-none">
+            <h1
+              style="
+                font-family: cursive;
+                font-size: 36px;
+                text-align: center;
+                color: aliceblue;
+                text-shadow: 2px 2px #000000;
+              "
+            >
+              list show
+            </h1>
+            <br />
             <ul class="list-group" id="home-page-properties-list"></ul>
           </div>
           <div id="propertiesCarusel">
@@ -418,16 +441,27 @@
             <div class="row">
               <div class="col-lg-6">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure,
-                  corrupti nisi similique minima rem ipsam non sint iste
-                  suscipit labore ab eum facere veniam fugiat vero ullam, odio,
-                  hic expedita. Eum voluptatum, autem repudiandae accusamus odio
-                  repellendus nulla nobis ducimus eaque magni. Quis minima aut
-                  enim natus vel excepturi doloremque. At Company Name, we
-                  specialize in creating high-quality products that help our
-                  customers achieve their goals. With a focus on innovation and
-                  creativity, we're constantly pushing the boundaries of what's
-                  possible to deliver exceptional results.
+                  We specialize in selling luxury cars that provide a premium
+                  driving experience with advanced features and superior
+                  comfort. Our cars are the epitome of automotive engineering,
+                  and we offer a range of high-end vehicles from well-known
+                  brands such as BMW, Mercedes-Benz, Audi, and Lexus, among
+                  others. At our dealership, we believe that owning a luxury car
+                  is not just about showing off wealth and status; it's also
+                  about providing a superior driving experience with advanced
+                  safety features, top-of-the-line performance, and unparalleled
+                  comfort. We take pride in offering only the best luxury cars
+                  that provide a unique blend of style, performance, and
+                  sophistication. Whether you are in the market for a new or
+                  used luxury car, we have a wide selection of vehicles to
+                  choose from. Our knowledgeable sales team can help you find
+                  the perfect car to fit your lifestyle and budget. We also
+                  offer financing options to make your purchase as seamless as
+                  possible. If you are looking for the ultimate driving
+                  experience, we invite you to explore our collection of luxury
+                  cars and find the one that suits your needs. Contact us today
+                  to schedule a test drive or to learn more about our available
+                  inventory.
                 </p>
                 <p>
                   Our team is made up of experienced professionals who are
@@ -439,50 +473,91 @@
                 </p>
               </div>
               <div class="col-lg-6">
-              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="assets/imgs/inside1.jpg" class= "d-block w-100" alt="inside car">
+                <div
+                  id="carouselExampleControls"
+                  class="carousel slide"
+                  data-bs-ride="carousel"
+                >
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img
+                        src="assets/imgs/inside1.jpg"
+                        class="d-block w-100"
+                        alt="inside car"
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="assets/imgs/inside2.jpg"
+                        class="d-block w-100"
+                        alt="inside car"
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="assets/imgs/inside3.jpg"
+                        class="d-block w-100"
+                        alt="inside car"
+                      />
+                    </div>
                   </div>
-                  <div class="carousel-item">
-                    <img src="assets/imgs/inside2.jpg" class="d-block w-100" alt="inside car">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="assets/imgs/inside3.jpg" class="d-block w-100" alt="inside car">
-                  </div>
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
               </div>
             </div>
           </div>
           <div class="container my-5">
             <div class="row justify-content-center">
               <div class="col-md-6 text-center">
-                <h2 class="fw-bold mb-4">Beautifully Designed Title</h2>
+                <h2 class="fw-bold mb-4">you buy we happy😄</h2>
                 <hr class="border-2 border-primary" />
                 <p class="lead mt-4">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Incidunt animi aliquam repudiandae mollitia laboriosam est
-                  ratione veniam adipisci, excepturi enim non, voluptatem itaque
-                  id, reprehenderit minus blanditiis beatae temporibus cum!
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-                  provident neque pariatur nihil corrupti placeat vitae ratione
-                  dolor consequatur cupiditate autem, minus illum recusandae
-                  perferendis. Doloribus, eum autem! Doloribus, explicabo! Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  consequat mollis sapien eu suscipit. Sed lacinia, orci eu
-                  blandit tincidunt, velit dolor vulputate risus, et tincidunt
-                  nisi dolor nec magna. Pellentesque id diam vel nisl fringilla
-                  fringilla vitae vel nisi. Aliquam eget sem ac nulla commodo
-                  varius.
+                  At our luxury car shop, we are proud to be family-owned and
+                  operated. Our owners, John and Sarah, have a passion for
+                  high-end cars that began as a hobby and eventually turned into
+                  a successful business. With over 20 years of experience in the
+                  automotive industry, John and Sarah have a deep understanding
+                  of what it takes to provide exceptional customer service and
+                  offer only the best luxury cars. They believe that every
+                  customer deserves a personalized and stress-free car buying
+                  experience, and they go above and beyond to make that a
+                  reality. As avid car enthusiasts, John and Sarah have an eye
+                  for quality and attention to detail that is reflected in the
+                  vehicles they offer. They personally hand-select each car in
+                  their inventory, ensuring that every car meets their high
+                  standards of excellence. Their passion for luxury cars extends
+                  beyond their business, as they also participate in various car
+                  shows and events in the community. They are dedicated to
+                  sharing their love of cars with others and helping customers
+                  find the perfect vehicle to fit their lifestyle. When you
+                  visit our luxury car shop, you can expect to receive
+                  personalized service from a team that truly cares about your
+                  satisfaction. John and Sarah are committed to providing a
+                  memorable experience for every customer, and they look forward
+                  to helping you find the luxury car of your dreams.
                 </p>
               </div>
             </div>
@@ -493,15 +568,15 @@
               <div class="col-lg-3 mb-4">
                 <div class="card text-center">
                   <img
-                    src="assets/imgs/7.jpg"
+                    src="assets/imgs/maserti2.jpeg"
                     alt="mercedes car"
                     class="card-img-top rounded-circle"
                   />
                   <div class="card-body">
-                    <h5 class="card-title">John Smith</h5>
+                    <h5 class="card-title">maserti s-301</h5>
                     <p class="card-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed consequat mollis sapien eu suscipit.
+                    The best selling vehicle in the last year!
+                    We bought 18 vehicles from this series, come be a part of all our help❤️
                     </p>
                   </div>
                 </div>
@@ -514,10 +589,10 @@
                     class="card-img-top rounded-circle"
                   />
                   <div class="card-body">
-                    <h5 class="card-title">Jane Doe</h5>
+                    <h5 class="card-title">jonson taub</h5>
                     <p class="card-text">
-                      Sed lacinia, orci eu blandit tincidunt, velit dolor
-                      vulputate risus, et tincidunt nisi dolor nec magna.
+                    As the owner of our luxury car shop,  has a deep passion for high-end vehicles and a commitment to providing
+                    exceptional customer service. With 20 years of experience in the automotive 
                     </p>
                   </div>
                 </div>
@@ -530,10 +605,10 @@
                     class="card-img-top rounded-circle"
                   />
                   <div class="card-body">
-                    <h5 class="card-title">Jane Doe</h5>
+                    <h5 class="card-title">shalev sharon</h5>
                     <p class="card-text">
-                      Sed lacinia, orci eu blandit tincidunt, velit dolor
-                      vulputate risus, et tincidunt nisi dolor nec magna.
+                The founder of the company has been investing in it since 2002 with a significant part of the company Come meet us shalev's love for luxury cars began as a hobby and eventually turned 
+              
                     </p>
                   </div>
                 </div>
@@ -546,10 +621,10 @@
                     class="card-img-top rounded-circle"
                   />
                   <div class="card-body">
-                    <h5 class="card-title">Mark Johnson</h5>
+                    <h5 class="card-title">Auodi A-30</h5>
                     <p class="card-text">
                       Pellentesque id diam vel nisl fringilla fringilla vitae
-                      vel nisi. Aliquam eget sem ac nulla commodo varius.
+                      vel nisi. Aliquam eget sem ac nulla commodo.
                     </p>
                   </div>
                 </div>
@@ -572,63 +647,69 @@
           >
             Contact Us
           </h1>
-          <div class="container my-5">
-            <div class="row justify-content-center">
-              <div class="col-lg-8 col-md-10">
-                <form>
-                  <div class="mb-3">
-                    <label for="name" class="form-label" style="color: white"
-                      >Name</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="name"
-                      placeholder="Enter your name"
-                    />
+        <div class="container my-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+              <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                  <div class="mapouter">
+                    <div class="gmap_canvas">
+                      <iframe id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=San%20Francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                        scrolling="no" marginheight="0" marginwidth="0">
+                      </iframe>
+                      <a href="https://www.embedgooglemap.net"></a>
+                    </div>
                   </div>
-                  <div class="mb-3">
-                    <label for="email" class="form-label" style="color: white"
-                      >Email</label
-                    >
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="subject" class="form-label" style="color: white"
-                      >Subject</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="subject"
-                      placeholder="Enter the subject of your message"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="message" class="form-label" style="color: white"
-                      >Message</label
-                    >
-                    <textarea
-                      class="form-control"
-                      id="message"
-                      rows="5"
-                      placeholder="Enter your message"
-                    ></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-primary">
-                    Send Message
-                  </button>
-                </form>
+                </div>
+                <div class="col-md-6">
+                  <form>
+                    <div class="form-container">
+                      <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                      </div>
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                      </div>
+                      <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" placeholder="Enter the subject of your message">
+                      </div>
+                      <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                  </form>
+                </div>
               </div>
-                
             </div>
           </div>
+          <div class="container my-5">
+            <div class="row">
+              <div class="col-md-8">
+                <h2>talk us</h2>
+                <p class="lead">We would love to hear from you! If you have any questions, comments, or feedback, please don't hesitate to contact us
+                using the form below. One of our representatives will get back to you as soon as possible.
+                
+                Alternatively, you can also contact us via phone or email using the information provided below:
+                
+          
+                
+                Thank you for your interest in our luxury car shop. We look forward to hearing from you soon!.</p>
+              </div>
+              <div class="col-md-4">
+                <img src="assets/imgs/bentley2.png" class="img-fluid rounded-circle" alt="placeholder">
+              </div>
+            </div>
+          </div>
+
         </div>
+        
+      
         <!--registr page-->
         <div id="register-page" class="d-none">
           <h1
@@ -1141,19 +1222,15 @@
             </div>
 
             <div class="col-12">
-              <button
-                type="submit"
-                class="btn btn-primary"
-            
-                id="profile-btn"
-              >
+              <button type="submit" class="btn btn-primary" id="profile-btn">
                 Update
               </button>
             </div>
           </form>
-                <div id="page-not-found-page" class="d-none"> </div>    
+                
+          <div id="page-not-found-page" class="d-none"> </div>
+              
         </div>
-
       </main>
       <footer class="bg-body-secondary">
         <div class="container">

@@ -66,7 +66,6 @@ const createCard = (name, description, price, img, id) => {
 
 const handleEditBtnClick = (ev) => {
   let idxFromId = ev.target.id.split("-");
-  console.log("here", ev);
   selectedPropert(idxFromId[1]);
   showPopup(initPopup);
 };
